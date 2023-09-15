@@ -1,0 +1,116 @@
+#include "tree.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <math.h>
+
+
+#define max(a,b) (a>b?a:b)
+struct tree_node
+{
+	int num;
+	struct tree_node* right;
+	struct tree_node* left;
+};
+
+//truct tree {
+//	struct tree_node* root;
+//};
+
+struct tree_node* tree_node_create(int num)
+{
+	struct tree_node* node = (struct tree_node*) malloc(sizeof(struct tree_node));
+	node->num = num;
+	node->left = 0;
+	node->right = 0;
+	return node;
+}
+
+struct tree_node* tree_create()
+{
+	//struct tree* tree = (struct tree*) malloc(sizeof(struct tree));
+	//struct tree_node* node = (struct tree_node*) malloc(sizeof(struct tree_node));
+	struct tree_node* node = tree_node_create(0);
+	return node;
+}
+
+
+void tree_insert_node(struct tree_node* root, int num)
+{
+	assert(0 != root);
+	assert(num != root->num);
+	if (0 == root->num){
+		root->num = num;
+	} else {
+		if (num < root->num && 0 != root->left) {
+			tree_insert_node(root->left, num);
+		} else if (num > root->num && 0 != root->right) {
+			tree_insert_node(root->right, num);
+		} else {
+			if (num < root->num) {
+				assert(0 == root->left);
+				root->left = tree_node_create(num);
+				assert(0 != root->left);
+			} else {
+				assert(0 == root->right);
+				root->right = tree_node_create(num);
+				assert(0 != root->right);
+			}
+		}
+	}
+}
+
+void tree_preorder_print(struct tree_node* root) 
+{
+	assert(0 != root);
+	printf("%d, ", root->num);
+	if (0 != root->left) {
+		tree_preorder_print(root->left);
+	}
+	if (0 != root->right) {
+		tree_preorder_print(root->right);
+	}
+}
+
+int tree_get_size(struct tree_node* root) 
+{
+	int size = 0;
+	void tree_size(struct tree_node* root) {
+		assert(0 != root);
+		size ++;
+		if (0 != root->left) {
+			tree_size(root->left);
+		}
+		if (0 != root->right) {
+			tree_size(root->right);
+		}
+	}
+	tree_size(root);
+	return size;
+}
+
+//int tree_height(struct tree_node* root)
+//{
+//	
+//}
+
+int main() {
+
+	struct tree_node* root = tree_create();
+	tree_insert_node(root, 10);
+	tree_insert_node(root, 5);
+	tree_insert_node(root, 6);
+	tree_insert_node(root, 20);
+	tree_insert_node(root, 14);
+	tree_insert_node(root, 26);
+	tree_insert_node(root, 13);
+	tree_insert_node(root, 19);
+	tree_insert_node(root, 28);
+	tree_insert_node(root, 30);
+	tree_insert_node(root, 30);
+	tree_preorder_print(root);
+	int cur_size = tree_get_size(root);
+	printf("\n%d\n", cur_size);
+	//printf("\n%d\n", tree_height(root));
+}

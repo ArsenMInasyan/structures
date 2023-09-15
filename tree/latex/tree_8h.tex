@@ -1,0 +1,141 @@
+\hypertarget{tree_8h}{}\doxysection{tree.\+h File Reference}
+\label{tree_8h}\index{tree.h@{tree.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tree_8h_a31020a78c56b5d16b4868b2a8bf7eb97}\label{tree_8h_a31020a78c56b5d16b4868b2a8bf7eb97}} 
+struct tree $\ast$ \mbox{\hyperlink{tree_8h_a31020a78c56b5d16b4868b2a8bf7eb97}{tree\+\_\+create}} ()
+\begin{DoxyCompactList}\small\item\em Function to create an empty tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tree_8h_a75cdff27a7212bafa7c43712f6f5df9a}{tree\+\_\+insert}} (struct tree $\ast$tree, int num)
+\begin{DoxyCompactList}\small\item\em Inserts node with given data into the tree. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tree_8h_af667e014dbfb761390afd483ca6b6927}\label{tree_8h_af667e014dbfb761390afd483ca6b6927}} 
+int \mbox{\hyperlink{tree_8h_af667e014dbfb761390afd483ca6b6927}{tree\+\_\+height}} (struct tree $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Function to return tree height. \end{DoxyCompactList}\item 
+struct index \mbox{\hyperlink{tree_8h_a2cbcdbb11be829ad0a5c833ae2c5cd3f}{tree\+\_\+node\+\_\+index\+\_\+by\+\_\+data}} (struct tree $\ast$tree, int num)
+\begin{DoxyCompactList}\small\item\em Function to return tree node index by given data. \end{DoxyCompactList}\item 
+struct tree\+\_\+node $\ast$ \mbox{\hyperlink{tree_8h_a9f96617b614a964b242f2d23c825a35b}{tree\+\_\+node\+\_\+search}} (struct tree $\ast$tree, int num)
+\begin{DoxyCompactList}\small\item\em Function to return tree node by given data. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tree_8h_ae1578fa375482b3958381389c79f1402}{tree\+\_\+size}} (struct tree $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Function to return the number of nodes in the tree. \end{DoxyCompactList}\item 
+struct tree\+\_\+node $\ast$ \mbox{\hyperlink{tree_8h_a205a6eb5e7cb50f85f092b7445a4a8d3}{tree\+\_\+node\+\_\+find\+\_\+by\+\_\+index}} (struct tree $\ast$tree, struct index ind)
+\begin{DoxyCompactList}\small\item\em Function to return the tree node with the given index from the tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tree_8h_aab90283f1d79494a10f06e41637c4feb}{tree\+\_\+remove\+\_\+node\+\_\+by\+\_\+index}} (struct tree $\ast$tree, struct index ind)
+\begin{DoxyCompactList}\small\item\em Function to remove the node by it\textquotesingle{}s index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct tree\+\_\+node is a structure for a node of tree. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tree_8h_a75cdff27a7212bafa7c43712f6f5df9a}\label{tree_8h_a75cdff27a7212bafa7c43712f6f5df9a}} 
+\index{tree.h@{tree.h}!tree\_insert@{tree\_insert}}
+\index{tree\_insert@{tree\_insert}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{tree\_insert()}{tree\_insert()}}
+{\footnotesize\ttfamily void tree\+\_\+insert (\begin{DoxyParamCaption}\item[{struct tree $\ast$}]{tree,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Inserts node with given data into the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & is the given tree. \\
+\hline
+{\em num} & is the given data.\\
+\hline
+\end{DoxyParams}
+num is inserted into the tree in a way that the tree is balanced the most. \mbox{\Hypertarget{tree_8h_a205a6eb5e7cb50f85f092b7445a4a8d3}\label{tree_8h_a205a6eb5e7cb50f85f092b7445a4a8d3}} 
+\index{tree.h@{tree.h}!tree\_node\_find\_by\_index@{tree\_node\_find\_by\_index}}
+\index{tree\_node\_find\_by\_index@{tree\_node\_find\_by\_index}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{tree\_node\_find\_by\_index()}{tree\_node\_find\_by\_index()}}
+{\footnotesize\ttfamily struct tree\+\_\+node$\ast$ tree\+\_\+node\+\_\+find\+\_\+by\+\_\+index (\begin{DoxyParamCaption}\item[{struct tree $\ast$}]{tree,  }\item[{struct index}]{ind }\end{DoxyParamCaption})}
+
+
+
+Function to return the tree node with the given index from the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & is the tree. \\
+\hline
+{\em ind} & is the index.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+ind has to be valid(tree has to have a node with given index in it). 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{tree_8h_a2cbcdbb11be829ad0a5c833ae2c5cd3f}\label{tree_8h_a2cbcdbb11be829ad0a5c833ae2c5cd3f}} 
+\index{tree.h@{tree.h}!tree\_node\_index\_by\_data@{tree\_node\_index\_by\_data}}
+\index{tree\_node\_index\_by\_data@{tree\_node\_index\_by\_data}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{tree\_node\_index\_by\_data()}{tree\_node\_index\_by\_data()}}
+{\footnotesize\ttfamily struct index tree\+\_\+node\+\_\+index\+\_\+by\+\_\+data (\begin{DoxyParamCaption}\item[{struct tree $\ast$}]{tree,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Function to return tree node index by given data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & is the given tree. \\
+\hline
+{\em num} & is the given data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if tree node with the given data is not found in the tree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tree_8h_a9f96617b614a964b242f2d23c825a35b}\label{tree_8h_a9f96617b614a964b242f2d23c825a35b}} 
+\index{tree.h@{tree.h}!tree\_node\_search@{tree\_node\_search}}
+\index{tree\_node\_search@{tree\_node\_search}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{tree\_node\_search()}{tree\_node\_search()}}
+{\footnotesize\ttfamily struct tree\+\_\+node$\ast$ tree\+\_\+node\+\_\+search (\begin{DoxyParamCaption}\item[{struct tree $\ast$}]{tree,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Function to return tree node by given data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & is the given tree. \\
+\hline
+{\em num} & is the given data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if tree node with the given data is not found in the tree
+\end{DoxyReturn}
+\mbox{\Hypertarget{tree_8h_aab90283f1d79494a10f06e41637c4feb}\label{tree_8h_aab90283f1d79494a10f06e41637c4feb}} 
+\index{tree.h@{tree.h}!tree\_remove\_node\_by\_index@{tree\_remove\_node\_by\_index}}
+\index{tree\_remove\_node\_by\_index@{tree\_remove\_node\_by\_index}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{tree\_remove\_node\_by\_index()}{tree\_remove\_node\_by\_index()}}
+{\footnotesize\ttfamily void tree\+\_\+remove\+\_\+node\+\_\+by\+\_\+index (\begin{DoxyParamCaption}\item[{struct tree $\ast$}]{tree,  }\item[{struct index}]{ind }\end{DoxyParamCaption})}
+
+
+
+Function to remove the node by it\textquotesingle{}s index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & is the given tree. \\
+\hline
+{\em ind} & is the given index.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+ind has to be valid(tree has to have a node with given index in it). 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{tree_8h_ae1578fa375482b3958381389c79f1402}\label{tree_8h_ae1578fa375482b3958381389c79f1402}} 
+\index{tree.h@{tree.h}!tree\_size@{tree\_size}}
+\index{tree\_size@{tree\_size}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{tree\_size()}{tree\_size()}}
+{\footnotesize\ttfamily int tree\+\_\+size (\begin{DoxyParamCaption}\item[{struct tree $\ast$}]{tree }\end{DoxyParamCaption})}
+
+
+
+Function to return the number of nodes in the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & is the given tree. \\
+\hline
+\end{DoxyParams}
