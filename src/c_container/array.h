@@ -30,7 +30,20 @@ struct array* array_create();
  */
 void array_insert(struct array* arr, char sym, int ind);
 
-void array_pushback(struct array* arr, char sym);
+void array_push_back(struct array* arr, char sym);
+
+/**
+ * @brief Function to remove the node from the array in the given index.
+ * 
+ * @param arr is the array.
+ * @param ind is the index.
+ *
+ * @pre ind is smaller than the array size and bigger or equal to 0.
+ *
+ * @details If ind is equal to 0 the first element of the array is removed, if it's bigger than 0 and smaller than the array size the element with the given index is removed and if it's equal to array size - 1, the last element in the array is removed.
+ */
+void array_node_remove(struct array* arr, int ind);
+
 
 void array_print(struct array* arr);
 
@@ -66,18 +79,6 @@ int array_capacity(struct array* arr);
  *
  * @pre cap is bigger than the capacity of the array.
  */
-void array_extend_capacity(struct array* arr, int cap);
-
-/**
- * @brief Function to remove the node from the array in the given index.
- * 
- * @param arr is the array.
- * @param ind is the index.
- *
- * @pre ind is smaller than the array size and bigger or equal to 0.
- *
- * @details If ind is equal to 0 the first element of the array is removed, if it's bigger than 0 and smaller than the array size the element with the given index is removed and if it's equal to array size - 1, the last element in the array is removed.
- */
-void array_node_remove(struct array* arr, int ind);
+void array_reserve(struct array* arr, int cap);
 
 #endif  // array_h__

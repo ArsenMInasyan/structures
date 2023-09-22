@@ -67,6 +67,7 @@ struct node* list_find_data(struct list* l, int num)
 		}
 		n = n->next;
 	}
+
 	return 0;
 }
 
